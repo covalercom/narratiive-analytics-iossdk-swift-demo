@@ -1,0 +1,6 @@
+framework module NarratiiveSDK {
+  umbrella header "NarratiiveSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

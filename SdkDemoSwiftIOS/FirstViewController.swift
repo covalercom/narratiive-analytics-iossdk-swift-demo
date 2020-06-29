@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NarratiiveSDK
 
 class FirstViewController: UIViewController {
 
@@ -14,7 +15,12 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let inst = NarratiiveSDK.sharedInstance() {
+            inst.send(screenName: "/first-page")
+        }
+    }
 
 }
 

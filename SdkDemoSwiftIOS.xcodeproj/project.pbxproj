@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		978A221CFB4097A9AB4DE122 /* Pods_SdkDemoSwiftIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4E4EB629A3BB41F21DBC85 /* Pods_SdkDemoSwiftIOS.framework */; };
 		C4176794249F8BD400E4AB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4176793249F8BD400E4AB17 /* AppDelegate.swift */; };
 		C4176796249F8BD400E4AB17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4176795249F8BD400E4AB17 /* SceneDelegate.swift */; };
 		C4176798249F8BD400E4AB17 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4176797249F8BD400E4AB17 /* FirstViewController.swift */; };
@@ -14,9 +15,13 @@
 		C417679D249F8BD400E4AB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C417679B249F8BD400E4AB17 /* Main.storyboard */; };
 		C417679F249F8BD600E4AB17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C417679E249F8BD600E4AB17 /* Assets.xcassets */; };
 		C41767A2249F8BD600E4AB17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41767A0249F8BD600E4AB17 /* LaunchScreen.storyboard */; };
+		C41767AA249F8C1A00E4AB17 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41767A9249F8C1A00E4AB17 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		652B7E9982DCF8533958E68B /* Pods-SdkDemoSwiftIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SdkDemoSwiftIOS.debug.xcconfig"; path = "Target Support Files/Pods-SdkDemoSwiftIOS/Pods-SdkDemoSwiftIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AE4E4EB629A3BB41F21DBC85 /* Pods_SdkDemoSwiftIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SdkDemoSwiftIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3B0BE5ADF85E2081A2B17F5 /* Pods-SdkDemoSwiftIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SdkDemoSwiftIOS.release.xcconfig"; path = "Target Support Files/Pods-SdkDemoSwiftIOS/Pods-SdkDemoSwiftIOS.release.xcconfig"; sourceTree = "<group>"; };
 		C4176790249F8BD400E4AB17 /* SdkDemoSwiftIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SdkDemoSwiftIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4176793249F8BD400E4AB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4176795249F8BD400E4AB17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		C417679E249F8BD600E4AB17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41767A1249F8BD600E4AB17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41767A3249F8BD600E4AB17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C41767A9249F8C1A00E4AB17 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978A221CFB4097A9AB4DE122 /* Pods_SdkDemoSwiftIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		393AEC065C710DDF132627B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE4E4EB629A3BB41F21DBC85 /* Pods_SdkDemoSwiftIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		694F6162AB484180F4A55F8A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				652B7E9982DCF8533958E68B /* Pods-SdkDemoSwiftIOS.debug.xcconfig */,
+				C3B0BE5ADF85E2081A2B17F5 /* Pods-SdkDemoSwiftIOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C4176787249F8BD400E4AB17 = {
 			isa = PBXGroup;
 			children = (
 				C4176792249F8BD400E4AB17 /* SdkDemoSwiftIOS */,
 				C4176791249F8BD400E4AB17 /* Products */,
+				694F6162AB484180F4A55F8A /* Pods */,
+				393AEC065C710DDF132627B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +89,7 @@
 				C4176797249F8BD400E4AB17 /* FirstViewController.swift */,
 				C4176799249F8BD400E4AB17 /* SecondViewController.swift */,
 				C417679B249F8BD400E4AB17 /* Main.storyboard */,
+				C41767A9249F8C1A00E4AB17 /* ThirdViewController.swift */,
 				C417679E249F8BD600E4AB17 /* Assets.xcassets */,
 				C41767A0249F8BD600E4AB17 /* LaunchScreen.storyboard */,
 				C41767A3249F8BD600E4AB17 /* Info.plist */,
@@ -77,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C41767A6249F8BD600E4AB17 /* Build configuration list for PBXNativeTarget "SdkDemoSwiftIOS" */;
 			buildPhases = (
+				D2AFDD1024871C933501B976 /* [CP] Check Pods Manifest.lock */,
 				C417678C249F8BD400E4AB17 /* Sources */,
 				C417678D249F8BD400E4AB17 /* Frameworks */,
 				C417678E249F8BD400E4AB17 /* Resources */,
+				692F367BE5C983DEDD2101D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,6 +165,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		692F367BE5C983DEDD2101D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SdkDemoSwiftIOS/Pods-SdkDemoSwiftIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SdkDemoSwiftIOS/Pods-SdkDemoSwiftIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SdkDemoSwiftIOS/Pods-SdkDemoSwiftIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2AFDD1024871C933501B976 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SdkDemoSwiftIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C417678C249F8BD400E4AB17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -143,6 +214,7 @@
 			files = (
 				C417679A249F8BD400E4AB17 /* SecondViewController.swift in Sources */,
 				C4176798249F8BD400E4AB17 /* FirstViewController.swift in Sources */,
+				C41767AA249F8C1A00E4AB17 /* ThirdViewController.swift in Sources */,
 				C4176794249F8BD400E4AB17 /* AppDelegate.swift in Sources */,
 				C4176796249F8BD400E4AB17 /* SceneDelegate.swift in Sources */,
 			);
@@ -220,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,16 +358,20 @@
 		};
 		C41767A7249F8BD600E4AB17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 652B7E9982DCF8533958E68B /* Pods-SdkDemoSwiftIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3545B757M;
 				INFOPLIST_FILE = SdkDemoSwiftIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.narrative.SdkDemoSwiftIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.narrative.sdk-demo-swift-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,16 +379,20 @@
 		};
 		C41767A8249F8BD600E4AB17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3B0BE5ADF85E2081A2B17F5 /* Pods-SdkDemoSwiftIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3545B757M;
 				INFOPLIST_FILE = SdkDemoSwiftIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.narrative.SdkDemoSwiftIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.narrative.sdk-demo-swift-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

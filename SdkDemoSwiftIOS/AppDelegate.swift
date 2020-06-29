@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NarratiiveSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        guard let sdk = NarratiiveSDK.sharedInstance() else {
+          assert(false, "Narratiive SDK not configured correctly")
+        }
+
+        // Optional, out put debug information when `true`
+        // Remove before app release.
+        sdk.debugMode = true
+            
+        sdk.setup(withHost: "m-example.org", andHostKey: "9SN/cN6oEv9QO2WCE7sb2D+BLmM=")
         return true
     }
 
