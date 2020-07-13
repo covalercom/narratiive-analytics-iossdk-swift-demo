@@ -24,6 +24,21 @@ pod install
 
 This creates an .xcworkspace file for your application. Use this file for all future development on your application.
 
+## Update NarratiiveSDK
+
+To update NarratiiveSDK to the latest version:
+
+```ruby
+pop update NarratiiveSDK
+```
+
+If you have problem updating to the latest version. Try `rm -rf Pods` and then `pod install`.
+
+To check the latest version:
+
+```
+pod search NarratiiveSDK
+```
 
 ## Initialize NarratiiveSDK for your iOS App
 
