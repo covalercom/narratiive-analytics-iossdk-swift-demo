@@ -50,6 +50,8 @@ To do so, import the NarratiiveSDK libruary and override the `didFinishLaunching
         // Optional, show debug information in output
         // Remove before app release.
         sdk.debugMode = true
+        // Optional, use of IDFA to identify user
+        sdk.useIDFA = true
         sdk.setup(withHost: "YOUR_HOSTNAME", andHostKey: "YOUR_HOSTKEY")
         
         return true
@@ -114,6 +116,15 @@ Example: [FirstViewControler.swfit](./Example/NarratiiveSDK/FirstViewController.
 
 **Note**: The `screenName` is used to identify the screen view. It should follows a URL path format and be in lowercases.
 
+## About IDFA
+
+Announced at WDDC (Worldwide Developers Conference) 2020, iOS 14 will begin requiring users to opt in for developers to access their devices’ advertising ID, or IDFA. 
+
+In versions before v0.2.0, the SDK collects the IDFA and use it for user identification by default.
+
+Since v0.2.0, the SDK requires the use of IDFA be explicitly enabled by setting `useIDFA = true`. Please refer to the above example for details.
+
+
 
 ## Author
 
@@ -122,3 +133,17 @@ git, engineering@narratiive.com
 ## License
 
 NarratiiveSDK is available under the MIT license. See the LICENSE file for more info.
+
+## Development
+
+This SDK was created using [Pod Lib Create](https://guides.cocoapods.org/making/using-pod-lib-create) and published to [CocoaPods Trunk](https://guides.cocoapods.org/making/getting-setup-with-trunk)
+
+Follow the steps bellow to start development:
+
+1. Install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)
+2. Open `Example/NarratiiveSDK.xcworkspace` with XCode for development;
+3. Update version number in `NarratiiveSDK.podspec`;
+4. `pod lib lint`
+5. Commit changes and create a release tag in the Git repository;
+6. `pod spec lint`
+7. `pod repo push`

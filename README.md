@@ -29,7 +29,7 @@ This creates an .xcworkspace file for your application. Use this file for all fu
 To update NarratiiveSDK to the latest version:
 
 ```ruby
-pop update NarratiiveSDK
+pod update NarratiiveSDK
 ```
 
 If you have problem updating to the latest version. Try `rm -rf Pods` and then `pod install`.
@@ -63,6 +63,8 @@ To do so, import the NarratiiveSDK libruary and override the `didFinishLaunching
         // Optional, show debug information in output
         // Remove before app release.
         sdk.debugMode = true
+        // Optional, use of IDFA to identify user
+        sdk.useIDFA = true
         sdk.setup(withHost: "YOUR_HOSTNAME", andHostKey: "YOUR_HOSTKEY")
         
         return true
@@ -89,6 +91,15 @@ Here you’ll send a named screen view to NarratiiveSDK whenever the user opens 
  
 
 **Note**: The `screenName` is used to identify the screen view. It should follows a URL path format and be in lowercases.
+
+
+## About IDFA
+
+Announced at WDDC (Worldwide Developers Conference) 2020, iOS 14 will begin requiring users to opt in for developers to access their devices’ advertising ID, or IDFA. 
+
+In versions before NarratiiveSDK v0.2.0, the SDK collects the IDFA and use it for user identification by default.
+
+Since NarratiiveSDK v0.2.0, the SDK requires the use IDFA be explicitly enabled by setting `useIDFA = true`. Please refer to the above example for details.
 
 
 ## Author

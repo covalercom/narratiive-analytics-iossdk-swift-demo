@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Optional, out put debug information when `true`
         // Remove before app release.
         sdk.debugMode = true
+        // Optional, use of IDFA to identify user
+        sdk.useIDFA = true
             
         sdk.setup(withHost: "m-example.org", andHostKey: "9SN/cN6oEv9QO2WCE7sb2D+BLmM=")
         return true

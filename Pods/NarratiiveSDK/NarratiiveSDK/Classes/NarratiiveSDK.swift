@@ -1,15 +1,19 @@
 import AdSupport
+import WebKit
 
 @objcMembers public class NarratiiveSDK: NSObject {
     static let NarratiiveSDKToken = "NarratiiveSDKToken"
+    let webView = WKWebView(frame: .zero)
     
     var host: String?
     var hostKey: String?
     var idfa: String?
     var token: String?
+    var ua: String?
     var isSending: Bool = false
     
     public var debugMode: Bool = false
+    public var useIDFA: Bool = false
     
     private func log(_ msg: String) {
         if debugMode {
@@ -39,41 +43,64 @@ import AdSupport
         }
     }
     
+    private func getUserAgent(completion: @escaping (String) -> Void) {
+        if let ua = ua {
+            completion(ua)
+        } else {
+            self.log("Detecting User Agent...")
+            
+            webView.evaluateJavaScript("navigator.userAgent") {
+                ua, error in
+                if let ua = ua {
+                    self.ua = ua as? String
+                    self.log("\t- User Agent Detected: \(self.ua!)")
+                } else {
+                    self.ua = "iOS/0.0 (Mobile)"
+                    self.log("\t- Failed detecting User Agent: \(String(describing: error)). Default to iOS/0.0 (Mobile)")
+                }
+                completion(self.ua!)
+            }
+        }
+    }
+    
     private func postJson(jsonDict: [String: Any?], urlString: String, completion: @escaping ([String: Any]?, Error?, Bool?) -> Void) {
         log("Making a POST request to \(urlString)...")
         
-        let url = URL(string: urlString)!
-        var request = URLRequest(url: url)
-        
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: jsonDict, options: [])
+        getUserAgent() { userAgent in
+            let url = URL(string: urlString)!
+            var request = URLRequest(url: url)
             
-            log("\t- with data \( String(decoding: jsonData, as: UTF8.self))...")
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
             
-            URLSession.shared.uploadTask(with: request, from: jsonData) {
-                data, response, error in
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: jsonDict, options: [])
                 
-                var success = false
-                if let httpResponse = response as? HTTPURLResponse {
-                    success = httpResponse.statusCode == 200 || httpResponse.statusCode == 202
-                }
+                self.log("\t- with data \( String(decoding: jsonData, as: UTF8.self))...")
                 
-                if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    completion(json, error, success)
-                } else {
-                    completion(nil, error, success)
-                }
+                URLSession.shared.uploadTask(with: request, from: jsonData) {
+                    data, response, error in
+                    
+                    var success = false
+                    if let httpResponse = response as? HTTPURLResponse {
+                        success = httpResponse.statusCode == 200 || httpResponse.statusCode == 202
+                    }
+                    
+                    if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        completion(json, error, success)
+                    } else {
+                        completion(nil, error, success)
+                    }
+                    
+                    
+                }.resume()
                 
-                
-            }.resume()
-            
-        } catch let error {
-            log("\t- POST request failed with error: \(error)...")
-            completion(nil, error, false)
+            } catch let error {
+                self.log("\t- POST request failed with error: \(error)...")
+                completion(nil, error, false)
+            }
         }
     }
     
@@ -138,7 +165,8 @@ import AdSupport
             "host": host,
             "hostKey": hostKey,
             "token": token,
-            "path": path
+            "path": path,
+            "agent": "ios"
         ]
         
         isSending = true
@@ -179,7 +207,10 @@ import AdSupport
         host = withHost
         hostKey = andHostKey
         
-        loadIDFA()
+        if useIDFA {
+            loadIDFA()
+        }
+
         loadToken()
     }
     
