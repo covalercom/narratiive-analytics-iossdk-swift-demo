@@ -1,5 +1,5 @@
 PODS:
-  - NarratiiveSDK (0.2.0)
+  - NarratiiveSDK (0.2.1)
 
 DEPENDENCIES:
   - NarratiiveSDK
@@ -9,7 +9,7 @@ SPEC REPOS:
     - NarratiiveSDK
 
 SPEC CHECKSUMS:
-  NarratiiveSDK: 0d672039f28f425ae811873e6f789820c8394a5c
+  NarratiiveSDK: 0df3d3970badf494b5da2bc7eb6d25c4dd8d7016
 
 PODFILE CHECKSUM: 9b65b1db0fdbf181da840b49700c983e290e2b1a
 

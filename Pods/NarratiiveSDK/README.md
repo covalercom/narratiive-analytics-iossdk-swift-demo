@@ -122,7 +122,7 @@ Announced at WDDC (Worldwide Developers Conference) 2020, iOS 14 will begin requ
 
 In versions before v0.2.0, the SDK collects the IDFA and use it for user identification by default.
 
-Since v0.2.0, the SDK requires the use of IDFA be explicitly enabled by setting `useIDFA = true`. Please refer to the above example for details.
+Since v0.2.0, the SDK requires the use of IDFA be explicitly enabled by setting `useIDFA = true`. Please refer to the above example for details. The SDK will not request user authorization. App developers need to issue an app-tracking authorization request to the user if required. For more details, visit  [https://developer.apple.com/documentation/apptrackingtransparency](https://developer.apple.com/documentation/apptrackingtransparency).
 
 
 
@@ -144,6 +144,13 @@ Follow the steps bellow to start development:
 2. Open `Example/NarratiiveSDK.xcworkspace` with XCode for development;
 3. Update version number in `NarratiiveSDK.podspec`;
 4. `pod lib lint`
-5. Commit changes and create a release tag in the Git repository;
-6. `pod spec lint`
+5. Commit changes and create a release tag in the Git repository. For example:
+
+    ```
+    $ git add -A && git commit -m "Release 0.0.1."
+    $ git tag '0.0.1'
+    $ git push --tags
+    ```
+
+6. `pod spec lint`  (use engineering@narratiive.com as user of CocoaPods Trunk)
 7. `pod repo push`

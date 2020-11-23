@@ -1,4 +1,5 @@
 import AdSupport
+import AppTrackingTransparency
 import WebKit
 
 @objcMembers public class NarratiiveSDK: NSObject {
@@ -23,12 +24,22 @@ import WebKit
     
     private func loadIDFA() {
         log("Loading IDFA from device...")
-        if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-            idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-            log("\t- IDFA loaded: \(String(describing: idfa))")
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus != ATTrackingManager.AuthorizationStatus.authorized  {
+                log("\t- IDFA NOT Authorized in IOS14+")                
+            }
         } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled == false {
+                log("\t- IDFA Tracking NOT Enabled")
+            }
+        }
+
+        idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        log("\t- IDFA loaded: \(String(describing: idfa))")
+
+        if idfa == "00000000-0000-0000-0000-000000000000" {
             idfa = nil
-            log("\t- IDFA NOT loaded")
+            log("\t- IDFA Zeroed. Possibly running in simulators or IDFA not allowed")
         }
     }
     
